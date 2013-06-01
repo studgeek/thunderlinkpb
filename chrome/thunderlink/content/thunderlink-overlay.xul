@@ -12,12 +12,11 @@
   </menupopup>
 
 
-  <!--
+  <!-- Unfortunately this doesn't seem to work under PostBox. I suspect it has a different popup id. -->
 	<popup id="mailContext">
 		  <menuitem
 		    id="thunderlink_option"
 		    label="Copy message link to clipboard"
 		    oncommand="ThunderLinkChromeNS.CopyMessageUrlToClp();"/>
     </popup>
-    -->
 </overlay>    
