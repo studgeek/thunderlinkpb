@@ -34,8 +34,33 @@ var ThunderLinkChromeNS = {
 
 	CopyMessageUrlToClp: function()
 	{
-		ThunderLinkChromeNS.CopyStringToClpBrd(ThunderLinkChromeNS.GetThunderlink());
+    var hdr = gDBView.hdrForFirstSelectedMessage;
+		var link = "x-postbox-message://" + hdr.messageId;
+
+		ThunderLinkChromeNS.CopyStringToClpBrd(
+        hdr.subject + " <" + link + ">"
+        );
 	},
+
+  CopyRichMessageUrlToClp: function()
+	{
+    var hdr = gDBView.hdrForFirstSelectedMessage;
+		var link = "x-postbox-message://" + hdr.messageId;
+
+       // More info here - http://stackoverflow.com/questions/218462/in-a-firefox-extension-how-can-i-copy-rich-text-links-to-the-clipboard
+    	   var hdr = gDBView.hdrForFirstSelectedMessage;
+    var richText = "<a href=\"" + link + "\">" + hdr.subject + "</a>";
+var xfer = Components.classes["@mozilla.org/widget/transferable;1"].createInstance(Components.interfaces.nsITransferable);
+xfer.addDataFlavor("text/html");
+
+var htmlString = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+htmlString.data = richText;
+xfer.setTransferData("text/html", htmlString, richText.length * 2);
+
+var clipboard = Components.classes["@mozilla.org/widget/clipboard;1"].getService(Components.interfaces.nsIClipboard);
+clipboard.setData(xfer, null, Components.interfaces.nsIClipboard.kGlobalClipboard);
+	},
+
 
   /* This does not work under OSX for Thunderbird and I'm not sure how to do it with PostBox
 	CopyMessageUrlToClpWithExe: function()
@@ -63,8 +88,6 @@ var ThunderLinkChromeNS = {
 
 	GetThunderlink: function()
 	{
-	   var hdr = gDBView.hdrForFirstSelectedMessage;
-		return "x-postbox-message://" + hdr.messageId;
-	}
+	 	}
 
 }
