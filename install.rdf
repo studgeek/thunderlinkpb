@@ -3,17 +3,30 @@
   <Description about="urn:mozilla:install-manifest">
     <em:id>thunderlink@mozilla.org</em:id>
     <em:type>2</em:type>
-    <em:name>ThunderLink</em:name>
-    <em:version>0.06</em:version>
+    <em:name>ThunderLinkPB</em:name>
+    <em:version>0.06pb1</em:version>
     <em:creator>Christoph Zwirello</em:creator>
-    <em:description>Link from your browser to your email messages!</em:description>
+    <em:contributor>David Rees (Modified for PostBox)</em:contributor>
+    <em:description>Link from your browser to your email messages! Modified by David Rees for PostBox</em:description>
 
-    <em:targetApplication>
+
+       <em:targetApplication>
       <Description>
-        <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id> <!-- Thunderbird -->
-        <em:minVersion>5.0</em:minVersion>
-        <em:maxVersion>17.*</em:maxVersion>
+        <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
+        <em:minVersion>1.0</em:minVersion>
+        <em:maxVersion>5.*</em:maxVersion>
       </Description>
     </em:targetApplication>
+    
+    <!-- Postbox -->
+     <em:targetApplication>
+      <Description>
+        <em:id>postbox@postbox-inc.com</em:id>
+        <em:minVersion>2.0b1</em:minVersion>
+        <em:maxVersion>3.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+
+
   </Description>
 </RDF>
