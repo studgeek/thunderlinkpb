@@ -37,6 +37,7 @@ var ThunderLinkChromeNS = {
 		ThunderLinkChromeNS.CopyStringToClpBrd(ThunderLinkChromeNS.GetThunderlink());
 	},
 
+  /* This does not work under OSX for Thunderbird and I'm not sure how to do it with PostBox
 	CopyMessageUrlToClpWithExe: function()
 	{
 	  var appDir;
@@ -58,6 +59,7 @@ var ThunderLinkChromeNS = {
 	    ThunderLinkChromeNS.CopyStringToClpBrd(pathToExePlusTL);
 
 	},
+  */
 
 	GetThunderlink: function()
 	{
