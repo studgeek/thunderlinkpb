@@ -64,7 +64,7 @@ var ThunderLinkChromeNS = {
 	GetThunderlink: function()
 	{
 	   var hdr = gDBView.hdrForFirstSelectedMessage;
-		return "thunderlink://" + "messageid=" + hdr.messageId;
+		return "x-postbox-message://" + hdr.messageId;
 	}
 
 }
